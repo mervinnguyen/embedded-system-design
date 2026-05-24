@@ -4,12 +4,33 @@ NS_ :
 
 BS_:
 
-BU_: EngineECU TransmissionECU ABSECU AirbagECU ADASCamera 
-BodyControl InstrumentCluster ParkingSensors Infotainment 
-GatewayECU OBDII
+BU_: EngineECU TransmissionECU ABSECU AirbagECU ADASCamera BodyControl InstrumentCluster ParkingSensors Infotainment GatewayECU OBDII
 
 BO_ 16 CrashDetection: 4 AirbagECU
  SG_ CrashSeverity  : 0|4@1+  (1,0)    [0|15]    ""   GatewayECU
  SG_ CrashZone      : 4|4@1+  (1,0)    [0|15]    ""   GatewayECU
  SG_ DeployCommand  : 8|8@1+  (1,0)    [0|255]   ""   GatewayECU
  SG_ CrashTimestamp : 16|16@1+ (1,0)   [0|65535] "ms" GatewayECU
+
+BO_ 160 WheelSpeed: 8 ABSECU
+ SG_ WheelSpeedFL : 0|16@1+  (0.01,0) [0|300] "kph" GatewayECU,EngineECU
+ SG_ WheelSpeedFR : 16|16@1+ (0.01,0) [0|300] "kph" GatewayECU,EngineECU
+ SG_ WheelSpeedRL : 32|16@1+ (0.01,0) [0|300] "kph" GatewayECU
+ SG_ WheelSpeedRR : 48|16@1+ (0.01,0) [0|300] "kph" GatewayECU
+
+BO_ 256 EngineStatus: 8 EngineECU
+ SG_ EngineRPM     : 0|16@1+  (1,0)    [0|8000]  "RPM" InstrumentCluster,GatewayECU
+ SG_ EngineTorque  : 16|16@1+ (0.1,-100) [-100|500] "Nm" GatewayECU,TransmissionECU
+ SG_ EngineLoad    : 32|8@1+  (0.5,0)  [0|100]   "%"  GatewayECU
+ SG_ EngineState   : 40|4@1+  (1,0)    [0|7]     ""   GatewayECU
+ SG_ FuelCutoff    : 44|1@1+  (1,0)    [0|1]     ""   GatewayECU
+ SG_ ChecksumEngine: 56|8@1+  (1,0)    [0|255]   ""   GatewayECU
+
+BO_ 512 CoolantTemp: 2 EngineECU
+ SG_ CoolantTemperature : 0|8@1+ (1,-40) [-40|215] "degC" InstrumentCluster,GatewayECU
+ SG_ CoolantTempValid   : 8|1@1+ (1,0)   [0|1]     ""     GatewayECU
+
+BO_ 2015 DiagRequest: 8 OBDII
+ SG_ ServiceID : 0|8@1+  (1,0) [0|255] "" GatewayECU
+ SG_ PID       : 8|8@1+  (1,0) [0|255] "" GatewayECU
+ SG_ DiagData  : 16|48@1+ (1,0) [0|0]  "" GatewayECU
