@@ -1,0 +1,15 @@
+VERSION ""
+
+NS_ :
+
+BS_:
+
+BU_: EngineECU TransmissionECU ABSECU AirbagECU ADASCamera 
+BodyControl InstrumentCluster ParkingSensors Infotainment 
+GatewayECU OBDII
+
+BO_ 16 CrashDetection: 4 AirbagECU
+ SG_ CrashSeverity  : 0|4@1+  (1,0)    [0|15]    ""   GatewayECU
+ SG_ CrashZone      : 4|4@1+  (1,0)    [0|15]    ""   GatewayECU
+ SG_ DeployCommand  : 8|8@1+  (1,0)    [0|255]   ""   GatewayECU
+ SG_ CrashTimestamp : 16|16@1+ (1,0)   [0|65535] "ms" GatewayECU
