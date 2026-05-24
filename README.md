@@ -1,4 +1,4 @@
- Embedded System Design
+ ## Embedded System Design
 
 > Production-grade embedded system design walkthroughs : architecture, implementation, and analysis across real-world firmware domains.
 
@@ -82,13 +82,6 @@ Design a battery-powered environmental sensor node targeting a 5-year lifetime w
 Design a distributed system with a main controller and 3 peripheral MCUs for sensor acquisition, inter-MCU communication, and synchronization.
 
 **Key topics:** SPI/I2C/UART protocol selection, master-slave arbitration, clock synchronization, fault detection across nodes, DMA chaining, message framing.
-
----
-
-### 6. [Embedded System Design — Interview Methodology](./interview-methodology/)
-A structured framework for approaching embedded system design interviews: requirements analysis, HW/SW partitioning, architecture patterns, and common failure modes.
-
-**Key topics:** Clarifying constraints, partitioning decisions, real-time vs. non-real-time tradeoffs, common interview mistakes and how to avoid them.
 
 ---
 
