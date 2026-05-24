@@ -34,3 +34,64 @@ BO_ 2015 DiagRequest: 8 OBDII
  SG_ ServiceID : 0|8@1+  (1,0) [0|255] "" GatewayECU
  SG_ PID       : 8|8@1+  (1,0) [0|255] "" GatewayECU
  SG_ DiagData  : 16|48@1+ (1,0) [0|0]  "" GatewayECU
+
+BO_ 176 BrakePressure: 4 ABSECU
+ SG_ BrakePressureFront : 0|12@1+ (0.1,0) [0|250] "bar" GatewayECU,EngineECU
+ SG_ BrakePressureRear  : 12|12@1+ (0.1,0) [0|250] "bar" GatewayECU
+ SG_ ABSActive          : 24|1@1+ (1,0) [0|1] "" GatewayECU,InstrumentCluster
+ SG_ BrakeValid         : 25|1@1+ (1,0) [0|1] "" GatewayECU
+
+BO_ 192 AirbagStatus: 2 AirbagECU
+ SG_ DriverAirbagArmed    : 0|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ PassengerAirbagArmed : 1|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ SeatbeltDriver       : 2|1@1+ (1,0) [0|1] "" InstrumentCluster,GatewayECU
+ SG_ SeatbeltPassenger    : 3|1@1+ (1,0) [0|1] "" InstrumentCluster,GatewayECU
+ SG_ AirbagFault          : 4|4@1+ (1,0) [0|15] "" InstrumentCluster,GatewayECU
+
+BO_ 272 ThrottleStatus: 4 EngineECU
+ SG_ ThrottlePosition   : 0|8@1+ (0.5,0) [0|100] "%" GatewayECU,TransmissionECU
+ SG_ AccelPedalPosition : 8|8@1+ (0.5,0) [0|100] "%" GatewayECU
+ SG_ ThrottleValid      : 16|1@1+ (1,0) [0|1] "" GatewayECU
+
+BO_ 288 GearRequest: 4 TransmissionECU
+ SG_ RequestedGear : 0|4@1+ (1,0) [0|8] "" GatewayECU,EngineECU
+ SG_ ShiftMode     : 4|2@1+ (1,0) [0|3] "" GatewayECU
+
+BO_ 304 GearStatus: 4 TransmissionECU
+ SG_ CurrentGear : 0|4@1+ (1,0) [0|8] "" GatewayECU,InstrumentCluster
+ SG_ GearEngaged : 4|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ TransTemp   : 8|8@1+ (1,-40) [-40|215] "degC" GatewayECU
+
+BO_ 528 OilPressure: 2 EngineECU
+ SG_ OilPressure     : 0|8@1+ (0.1,0) [0|10] "bar" InstrumentCluster,GatewayECU
+ SG_ OilPressureWarn : 8|1@1+ (1,0) [0|1] "" InstrumentCluster
+
+BO_ 768 ADASObjects: 8 ADASCamera
+ SG_ ObjectCount      : 0|4@1+ (1,0) [0|15] "" GatewayECU
+ SG_ Object0Distance  : 4|12@1+ (0.1,0) [0|200] "m" GatewayECU
+ SG_ Object0Velocity  : 16|12@1+ (0.1,-100) [-100|100] "kph" GatewayECU
+ SG_ Object0Type      : 28|4@1+ (1,0) [0|15] "" GatewayECU
+ SG_ LaneDeviation    : 32|12@1+ (0.01,-20) [-20|20] "cm" GatewayECU
+ SG_ CollisionWarning : 44|2@1+ (1,0) [0|3] "" GatewayECU,InstrumentCluster
+
+BO_ 1024 DoorStatus: 4 BodyControl
+ SG_ DoorFL     : 0|2@1+ (1,0) [0|3] "" InstrumentCluster,GatewayECU
+ SG_ DoorFR     : 2|2@1+ (1,0) [0|3] "" InstrumentCluster,GatewayECU
+ SG_ DoorRL     : 4|2@1+ (1,0) [0|3] "" InstrumentCluster,GatewayECU
+ SG_ DoorRR     : 6|2@1+ (1,0) [0|3] "" InstrumentCluster,GatewayECU
+ SG_ HoodOpen   : 8|1@1+ (1,0) [0|1] "" InstrumentCluster,GatewayECU
+ SG_ TrunkOpen  : 9|1@1+ (1,0) [0|1] "" InstrumentCluster,GatewayECU
+ SG_ LockStatus : 10|2@1+ (1,0) [0|3] "" InstrumentCluster,GatewayECU
+
+BO_ 1040 LightingControl: 3 BodyControl
+ SG_ HeadlightsOn    : 0|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ HighBeamOn      : 1|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ FogLightsOn     : 2|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ HazardsOn       : 3|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ TurnSignalLeft  : 4|1@1+ (1,0) [0|1] "" GatewayECU
+ SG_ TurnSignalRight : 5|1@1+ (1,0) [0|1] "" GatewayECU
+
+BO_ 2016 DiagResponseEngine: 8 EngineECU
+ SG_ ResponseService : 0|8@1+ (1,0) [0|255] "" OBDII
+ SG_ ResponsePID     : 8|8@1+ (1,0) [0|255] "" OBDII
+ SG_ ResponseData    : 16|48@1+ (1,0) [0|0] "" OBDII
